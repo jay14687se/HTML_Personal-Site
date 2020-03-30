@@ -1,0 +1,6 @@
+https://www.cssfontstack.com/
+https://fonts.google.com/
+https://www.flaticon.com/
+https://giphy.com/
+
+1em = 16px = 100%
