@@ -7,7 +7,7 @@ body {
 }
 
 .container-fluid {
-  padding: 3% 15%;
+  padding: 3% 15% 7%;
 }
 
 h1 {
@@ -54,10 +54,15 @@ h3 {
 .title-image {
   width: 60%;
   transform: rotate(25deg);
+  position: absolute;
+  right: 30%;
 }
 
 #features {
   padding: 7% 15%;
+  background-color: white;
+  position: relative;
+  /* z-index: 1; */
 }
 
 .feature-box {
@@ -117,4 +122,36 @@ h3 {
 
 .pricing-column {
   padding: 3% 2%;
+}
+
+@media (max-width: 991px) {
+  #title {
+    text-align: center;
+  }
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+  }
+}
+
+#cta {
+  background-color: #ff4c68;
+  text-align: center;
+  padding: 7% 15%;
+  color: #fff;
+}
+
+#cta h3 {
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+
+#footer {
+  text-align: center;
+  padding: 7% 15%;
+}
+
+.social-icons {
+  margin: 20px 10px;
 }
