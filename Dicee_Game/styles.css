@@ -1,0 +1,45 @@
+body {
+  text-align: center;
+  background-color: #323338;
+}
+
+h1 {
+  font-size: 8rem;
+  font-family: 'Lobster', cursive;
+  margin: 0;
+  padding-top: 1%;
+  color: #a4d4ae;
+  text-shadow: 4px 4px #000;
+}
+
+h3 {
+  color: #a4d4ae;
+  font-family: 'Indie Flower', cursive;
+  padding-bottom: 10%;
+}
+
+.dice-game {
+  padding: 3% 25%;
+}
+
+.game {
+  padding: 5% 20%;
+}
+
+.player {
+  padding: 2%;
+}
+
+.dice {
+  width: 80%;
+}
+
+.flag {
+  color: red;
+}
+
+footer {
+  color: #fff;
+  font-family: 'Indie Flower', cursive;
+  padding-top: 5%;
+}
