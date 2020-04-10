@@ -10,10 +10,6 @@ class Book(object):
         self.dateofpub = dateofpub
         self.isbnCode = isbnCode
 
-    def get_book_by_id(self, isbnCode):
-        if(self.isbnCode == isbnCode):
-            print(Book);
-
     def __str__(self):
         return "Book Details = BookName: {}, Author: {}, Publisher: {}, Price: {}, Date of Publication: {}, ISBN Code: {}".format(
             self.bookName,

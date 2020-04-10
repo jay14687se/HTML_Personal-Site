@@ -36,19 +36,6 @@ def get_book_by_id(library, isbnCode):
         if val.isbnCode == isbnCode:
             return val
 
-        # "Book Details = BookName: {}, Author: {}, Publisher: {}, Price: {}, Date of Publication: {}, ISBN Code: {}".format(
-        #     self.bookName,
-        #     self.author,
-        #     self.publisher,
-        #     self.price,
-        #     self.dateofpub,
-        #     self.isbnCode
-        #     )
-        # print(row_idx, " -- ", row, " -- ", book)
-        #print_row_as_table(row)
-
 table_fields, library = read_and_save_csv("csv-tables.csv")
-# print(table_fields, library)
-# print(library["book0"], library["book1"])
 book = get_book_by_id(library, "12222222333232231")
 print(book)
