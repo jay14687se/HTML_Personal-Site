@@ -1,0 +1,197 @@
+https://www.python.org/shell/
+https://www.onlinegdb.com/online_python_interpreter
+https://repl.it/languages/python3
+https://www.tutorialspoint.com/execute_python3_online.php
+https://rextester.com/l/python3_online_compiler
+https://trinket.io/python3
+
+Tutorial
+https://docs.python.org/3.8/tutorial/index.html
+https://docs.python.org/3/library/functions.html
+
+Characteristics:
+multi value returns, tuples
+case sensitive
+dynamic typed
+def funct():
+	return a, b, c
+a, b, c = funct()
+
+end="" - print
+
+Recursion - base case needed
+https://docs.python.org/3/library/stdtypes.html#string-methods
+https://docs.python.org/3/library/string.html#format-specification-mini-language
+https://docs.python.org/3/reference/lexical_analysis.html#f-strings
+
+Formatting Strings Cheat Sheet
+Python offers different ways to format strings. In the video, we explained the format() method. In this reading, we'll highlight three different ways of formatting strings. For this course you only need to know the format() method. But on the internet, you might find any of the three, so it's a good idea to know that the others exist.
+
+Using the format() method
+"base string with {} placeholders".format(variables)
+
+The format method returns a copy of the string where the {} placeholders have been replaced with the values of the variables. These variables are converted to strings if they weren't strings already. Empty placeholders are replaced by the variables passed to format in the same order.
+
+"{0} {1}".format(first, second)
+
+If the placeholders indicate a number, they’re replaced by the variable corresponding to that order (starting at zero).
+
+"{var1} {var2}".format(var1=value1, var2=value2)
+
+If the placeholders indicate a field name, they’re replaced by the variable corresponding to that field name. This means that parameters to format need to be passed indicating the field name.
+
+"{:exp1} {:exp2}".format(value1, value2)
+
+If the placeholders include a colon, what comes after the colon is a formatting expression. See below for the expression reference.
+
+Official documentation for the format string syntax
+
+Formatting expressions
+Expr	Meaning	Example
+{:d}	integer value	'{:d}'.format(10.5) → '10'
+{:.2f}	floating point with that many decimals	'{:.2f}'.format(0.5) → '0.50'
+{:.2s}	string with that many characters	'{:.2s}'.format('Python') → 'Py'
+{:<6s}	string aligned to the left that many spaces	'{:<6s}'.format('Py') → 'Py    '
+{:>6s}	string aligned to the right that many spaces	'{:<6s}'.format('Py') → '    Py'
+{:^6s}	string centered in that many spaces	'{:<6s}'.format('Py') → '  Py '
+Check out the official documentation for all available expressions.
+
+Old string formatting (Optional)
+The format() method was introduced in Python 2.6. Before that, the % (modulo) operator could be used to get a similar result. While this method is no longer recommended for new code, you might come across it in someone else's code. This is what it looks like:
+
+"base string with %s placeholder" % variable
+
+The % (modulo) operator returns a copy of the string where the placeholders indicated by %  followed by a formatting expression are replaced by the variables after the operator.
+
+"base string with %d and %d placeholders" % (value1, value2)
+
+To replace more than one value, the values need to be written between parentheses. The formatting expression needs to match the value type.
+
+"%(var1) %(var2)" % {var1:value1, var2:value2}
+
+Variables can be replaced by name using a dictionary syntax (we’ll learn about dictionaries in an upcoming video).
+
+"Item: %s - Amount: %d - Price: %.2f" % (item, amount, price)
+
+The formatting expressions are mostly the same as those of the format() method. 
+
+Check out the official documentation for old string formatting.
+
+Formatted string literals (Optional)
+This feature was added in Python 3.6 and isn’t used a lot yet. Again, it's included here in case you run into it in the future, but it's not needed for this or any upcoming courses.
+
+A formatted string literal or f-string is a string that starts with 'f' or 'F' before the quotes. These strings might contain {} placeholders using expressions like the ones used for format method strings.
+
+The important difference with the format method is that it takes the value of the variables from the current context, instead of taking the values from parameters.
+
+Examples:
+
+>>> name = "Micah"
+
+>>> print(f'Hello {name}')
+
+Hello Micah
+
+>>> item = "Purple Cup"
+
+>>> amount = 5
+
+>>> price = amount * 3.25
+
+>>> print(f'Item: {item} - Amount: {amount} - Price: {price:.2f}')
+
+Item: Purple Cup - Amount: 5 - Price: 16.25
+
+Check out the official documentation for f-strings.
+
+*******************************************************************************************************************************************************************
+do not iterate a list where you are removing items
+
+lsit comprehension
+
+def skip_elements(elements):
+	return [element for index, element in enumerate(elements) if index%2 == 0 ]
+	
+https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
+
+https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types
+https://docs.python.org/3/library/stdtypes.html#lists
+
+
+https://pypi.org/
+
+cloud = wordcloud.WordCloud()
+cloud.generate_from_frequencies(frequencies)
+cloud.to_file("myfile.jpg")
+
+
+!pip install wordcloud
+!pip install fileupload
+!pip install ipywidgets
+!jupyter nbextension install --py --user fileupload
+!jupyter nbextension enable --py fileupload
+
+import wordcloud
+import numpy as np
+from matplotlib import pyplot as plt
+from IPython.display import display
+import fileupload
+import io
+import sys
+
+def _upload():
+
+    _upload_widget = fileupload.FileUploadWidget()
+
+    def _cb(change):
+        global file_contents
+        decoded = io.StringIO(change['owner'].data.decode('utf-8'))
+        filename = change['owner'].filename
+        print('Uploaded `{}` ({:.2f} kB)'.format(
+            filename, len(decoded.read()) / 2 **10))
+        file_contents = decoded.getvalue()
+
+    _upload_widget.observe(_cb, names='data')
+    display(_upload_widget)
+
+_upload()
+
+def calculate_frequencies(file_contents):
+    # Here is a list of punctuations and uninteresting words you can use to process your text
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    uninteresting_words = ["the", "a", "to", "if", "is", "it", "of", "and", "or", "an", "as", "i", "me", "my", \
+    "we", "our", "ours", "you", "your", "yours", "he", "she", "him", "his", "her", "hers", "its", "they", "them", \
+    "their", "what", "which", "who", "whom", "this", "that", "am", "are", "was", "were", "be", "been", "being", \
+    "have", "has", "had", "do", "does", "did", "but", "at", "by", "with", "from", "here", "when", "where", "how", \
+    "all", "any", "both", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just", "in", \
+                          "for", "on", "so", "not", "may"]
+    
+    # LEARNER CODE START HERE
+    new_string = ""
+    for s in file_contents:
+        if s not in punctuations:
+            new_string += s
+    
+    str_array = [x.lower() for x in new_string.split()]
+    word_list = []
+    for strn in str_array:
+        if strn not in uninteresting_words:
+            word_list.append(strn)
+    
+    word_count = {}
+    for word in word_list:
+        if word not in word_count.keys():
+            word_count[word] = 0
+        word_count[word] += 1
+        
+    #wordcloud
+    cloud = wordcloud.WordCloud()
+    cloud.generate_from_frequencies(word_count)
+    return cloud.to_array()
+	
+myimage = calculate_frequencies(file_contents)
+plt.imshow(myimage, interpolation = 'nearest')
+plt.axis('off')
+plt.show()
+
+#!/usr/bin/env python3
