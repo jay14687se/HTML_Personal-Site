@@ -73,7 +73,7 @@ Variables can be replaced by name using a dictionary syntax (we’ll learn about
 
 "Item: %s - Amount: %d - Price: %.2f" % (item, amount, price)
 
-The formatting expressions are mostly the same as those of the format() method. 
+The formatting expressions are mostly the same as those of the format() method.
 
 Check out the official documentation for old string formatting.
 
@@ -111,7 +111,7 @@ lsit comprehension
 
 def skip_elements(elements):
 	return [element for index, element in enumerate(elements) if index%2 == 0 ]
-	
+
 https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
 
 https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types
@@ -165,33 +165,52 @@ def calculate_frequencies(file_contents):
     "have", "has", "had", "do", "does", "did", "but", "at", "by", "with", "from", "here", "when", "where", "how", \
     "all", "any", "both", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just", "in", \
                           "for", "on", "so", "not", "may"]
-    
+
     # LEARNER CODE START HERE
     new_string = ""
     for s in file_contents:
         if s not in punctuations:
             new_string += s
-    
+
     str_array = [x.lower() for x in new_string.split()]
     word_list = []
     for strn in str_array:
         if strn not in uninteresting_words:
             word_list.append(strn)
-    
+
     word_count = {}
     for word in word_list:
         if word not in word_count.keys():
             word_count[word] = 0
         word_count[word] += 1
-        
+
     #wordcloud
     cloud = wordcloud.WordCloud()
     cloud.generate_from_frequencies(word_count)
     return cloud.to_array()
-	
+
 myimage = calculate_frequencies(file_contents)
 plt.imshow(myimage, interpolation = 'nearest')
 plt.axis('off')
 plt.show()
 
 #!/usr/bin/env python3
+
+FLASK Python:
+Auto reload server for changes:
+Example:
+
+$ export FLASK_APP=main.py
+$ export FLASK_ENV=development
+$ flask run
+or in one command:
+
+$ FLASK_APP=main.py FLASK_ENV=development flask run
+If you want different port than the default (5000) add --port option.
+
+Example:
+
+$ FLASK_APP=main.py FLASK_ENV=development flask run --port 8080
+More options are available with:
+
+$ flask run --help
