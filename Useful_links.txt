@@ -4,3 +4,9 @@ https://www.flaticon.com/
 https://giphy.com/
 
 1em = 16px = 100%
+
+git to push everything again or refactor:
+git rm -r --cached .
+git add .
+git commit -m "remove gitignore files"
+git push
