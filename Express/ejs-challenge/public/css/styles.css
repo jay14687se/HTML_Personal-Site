@@ -15,6 +15,18 @@
     color: #1abc9c !important;
 }
 
+/* .compose-post {
+  box-sizing: border-box;
+  width: 100%;
+} */
+
+.post-body {
+  overflow: hidden;
+  width: 100ch;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .footer-padding {
 	padding-bottom: 60px;
 }
