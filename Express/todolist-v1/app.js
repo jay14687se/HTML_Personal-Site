@@ -142,7 +142,7 @@ app.get("/:customListName", function(req, res) {
   });
 });
 
-const listener = app.listen(3000, function() {
+const listener = app.listen(process.env.PORT || 3000, function() {
   console.log("Server has started on port " + listener.address().port);
 });
 
