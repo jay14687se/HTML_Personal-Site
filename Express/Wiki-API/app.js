@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.set("view-engine", ejs);
+app.set("view-engine", 'ejs');
 app.set(express.static("static-files"));
 
 mongoose.connect("mongodb://localhost:27017/wikiDB", {
